@@ -35,11 +35,15 @@ header {
     }
 }
 
+header .LogoDgm {
+    width: 300px;
+}
+
 
 header form {
     display: flex;
     gap: 5px;
-    max-width: 80%;
+    max-width: 100%;
     height: clamp(20px, 5vw, 30px);
 }
 
@@ -57,8 +61,8 @@ header input:focus {
 }
 
 header button {
-    background-color: green;
-    box-shadow: inset 1px 1px 1 rgba(164, 164, 164, 0.5);
+    background-color: rgb(72, 94, 172);
+    box-shadow: inset 5px 5px 10px rgba(0, 31, 6, 0.817);
     color: rgb(32, 15, 15);
     transition: 0.5s ease; 
     border-radius: 10px;
@@ -69,11 +73,13 @@ header button {
 
 header button:hover {
     cursor: pointer;
-    background-color: var(--secondary-color);
+    background-color: rgba(62, 81, 153, 0.726);
     box-shadow: inset 1px 1px 1 rgba(164, 164, 164, 0.5);
     color:rgb(22, 20, 20);
 }
-
+#LogoDgm{
+    height: 10px;
+}
 header form img {
     width: 30px;
     padding: 2px;
@@ -85,6 +91,11 @@ header form img {
     background: none;
     border: none;
     cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,;
+    
+}
+nav{
+    background-color: gray;
 }
 
 #menu {
@@ -117,15 +128,25 @@ main{
 
 footer{
     height: 100px;
-    background-color: brown;
+    background-color: rgba(62, 81, 153, 0.726);;
     width: 100%;
-    box-shadow: inset 3px 1px 3px 1px pink;
+    box-shadow: inset 3px 1px 3px 1px rgb(226, 213, 215);
 }
 
 
 main section{
     width: 95%;
     background-color: white;
-    height: 96%;
-    position: relat
+    height: 90%;
+    position: relative;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+main section {
+    
+}
+
+main section .Card {
+    background-color: rgb(124, 124, 137);
 }
