@@ -69,7 +69,7 @@ header button {
 
 header button:hover {
     cursor: pointer;
-
+    background-color: var(--secondary-color);
     box-shadow: inset 1px 1px 1 rgba(164, 164, 164, 0.5);
     color:rgb(22, 20, 20);
 }
@@ -112,8 +112,7 @@ li > a{
 main{
     height: 718px;
     background-color:black;
-    width: 100%; 
-    position: relative; 
+    width: 100%;  
 }    
 
 footer{
@@ -125,9 +124,8 @@ footer{
 
 
 main section{
-    padding
     width: 95%;
     background-color: white;
-    height: 90%;
-    position: relative;
+    height: 96%;
+    position: relat
 }

@@ -1,3 +1,6 @@
-const MostrarClicamento = () => {
-    alert("Você clicou no botãozinho do Miguel")
-}
+const menuBtn = document.getElementById("menu-btn");
+const menu = document.getElementById("menu");
+
+menuBtn.addEventListener("click", () => {
+    menu.classList.toggle('aberto")
+})
