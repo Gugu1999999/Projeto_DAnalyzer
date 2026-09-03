@@ -1,12 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap');
+
 *  {
-  margin: 0px; 
-  padding: 0px;
-  border: 0px;
+    margin: 0px; 
+    padding: 0px;
+    border: 0px;
+
+    transition: all 0.05s ease-in;
 }
 
 :root {
     --main-color: rgb(99, 99, 99);
     --secondary-color: rgba(255, 255, 255, 0.452);
+
+    --font-pixel: 
 }
 
 
@@ -17,7 +23,10 @@ header {
     justify-content: space-between;
     align-items: center;
 
-    background-color: white;
+    background-image: url(../../assets/images/TechBG.jpg);
+    background-size: contain;
+    background-repeat: repeat-x;
+    
     box-shadow: inset 5px 5px 10px rgba(127, 182, 253, 0.699);
     padding: 5px;
     
@@ -38,6 +47,7 @@ header {
 header .LogoDgm {
     width: 300px;
 }
+
 
 
 header form {
@@ -121,17 +131,8 @@ li > a{
 /* Corpo Principal */
 
 main{
-    height: 718px;
-    background-color:black;
-    width: 100%;  
+    height: 80vh;
 }    
-
-footer{
-    height: 100px;
-    background-color: rgba(62, 81, 153, 0.726);;
-    width: 100%;
-    box-shadow: inset 3px 1px 3px 1px rgb(226, 213, 215);
-}
 
 
 main section{
@@ -143,10 +144,73 @@ main section{
     margin-top: 10px;
 }
 
-main section {
-    
+main .Cards {
+    display:flex;
 }
 
 main section .Card {
-    background-color: rgb(124, 124, 137);
+    background-color: rgb(157, 157, 240);
+    
+    width: 200px;
+    height: 25vh;
+
+    box-shadow: inset 5px 5px 20px black, 5px 5px 10px black;
+     
+    margin: 10px;
 }
+
+main section .Card .card-header {
+    background-image: linear-gradient(to bottom, rgb(157, 157, 240), rgba(105, 105, 231, 0.842));
+    background-size: contain;
+    margin: 0;
+    padding: 10px;
+
+    font-size: clamp(10px, 3vw, 20px);
+    font-family: 'Geist Pixel', display;
+
+}
+
+main section .Card .card-header h1 {
+    text-align: center;
+    font-size: clamp(10px, 3vw, 20px);
+    font-weight: bold;
+}
+
+
+main section .Card .card-details {
+    margin: 5px;
+    padding: 20px;
+    box-shadow: inset 10px 10px 20px  rgb(85, 85, 204);
+    
+
+    text-align: justify;
+    font-size: clamp(10px, 3vw, 20px);
+    font-weight: bold;
+    font-family: 'Geist Pixel', monospace;
+}
+
+main section .Card  .card-details .btn-details {
+    font-size: clamp(15px, 3vw, 25px);
+    font-weight: bold;
+    font-family: 'Geist Pixel', monospace;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+main section .Card  .card-details .btn-details:hover {
+    transform: scale(1.05);
+
+    background-color: rgba(228, 159, 255, 0.925);
+    cursor: pointer;
+}
+
+/*Rodapé*/
+
+footer{
+    height: 100px;
+    background-color: rgba(62, 81, 153, 0.726);
+    width: 100%;
+    box-shadow: inset 3px 1px 3px 1px rgb(226, 213, 215);
+}
+
+    
