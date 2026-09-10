@@ -142,6 +142,7 @@ nav{
 li > a{
     text-decoration: none;
 }
+
 /* Corpo Principal */
 
 main{
@@ -192,7 +193,6 @@ main section .Card .card-header h1 {
     font-weight: bold;
 }
 
-
 main section .Card .card-details {
     margin: 5px;
     padding: 30px;
@@ -224,9 +224,29 @@ main section .Card  .card-details .btn-details:hover {
 
 footer{
     height: 100px;
+    padding: 10px;
+    padding-top: 30px;
     background-color: rgba(79, 220, 224, 0.726);
-    width: 100%;
-    box-shadow: inset 3px 1px 3px 1px rgb(226, 213, 215);
+    background-position: top;
+    background-size: cover;
+    box-shadow: inset 10px 10px 10px 1px rgb(226, 213, 215);
+    text-align: center;
 }
 
-    
+footer a {
+    font-family: 'Geist Pixel', monospace;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(32, 41, 88);
+    margin: 0px 10px 0px 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+
+}
+
+footer p {
+    margin-top: 5px;
+    color: rgba(0, 0, 0, 0.74);
+}
