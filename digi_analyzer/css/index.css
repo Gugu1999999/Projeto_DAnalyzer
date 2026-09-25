@@ -250,3 +250,7 @@ footer p {
     margin-top: 5px;
     color: rgba(0, 0, 0, 0.74);
 }
+
+.hide {
+    display: none !important;
+}
