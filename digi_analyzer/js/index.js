@@ -12,7 +12,7 @@ searchInput.addEventListener("input", () => {
     const query = searchInput.value.trim().toLowerCase();
 
     cards.forEach(card => {
-        const nameElement = card.querySelector(".card-header h1");
+        const nameElement = card.querySelector(".card-info h1");
 
         if (nameElement) {
             const digimonName = nameElement.textContent.trim().toLowerCase();
@@ -28,8 +28,9 @@ searchInput.addEventListener("input", () => {
 
 cards.forEach(card => {
     card.addEventListener("click", () => {
-        const pagina = card.dataset.page;
-        window.location.href = pagina;
+        const digimon = card.dataset.digimon;
+
+        window.location.href = `info.html?digimon=${digimon}`;
     });
 
     card.addEventListener("keydown", (event) => {
