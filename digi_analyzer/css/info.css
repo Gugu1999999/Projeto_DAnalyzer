@@ -89,7 +89,6 @@ header h1 {
 /* CORPO PRINCIPAL */
 
 main{
-    outline: 2px solid red;
     display: flex;
     min-height: 668px;
     background-image: url(../../assets/images/GridBG.png);
@@ -115,8 +114,6 @@ img{
 }
 
 .nome {
-    position: absolute;
-    margin-left: 150px;
     color:rgb(139, 114, 114);
 }
 
@@ -148,7 +145,6 @@ img{
 /* RODAPÉ */
 
 footer{
-    outline: 2px solid red;
     height: auto;
     padding: 30px 10px 30px 10px;
     background-color: rgba(79, 214, 224, 0.726);

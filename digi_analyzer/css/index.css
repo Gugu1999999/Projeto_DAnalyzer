@@ -307,7 +307,6 @@ main section .Card:focus-visible {
 
     object-fit: contain;
 
-    background-color: #f2f2f2;
     border-radius: 6px;
 }
 
@@ -340,18 +339,23 @@ main section .Card:focus-visible {
 
 .card-types .type {
     flex: 1;
-
     text-align: center;
-    padding: 3px;
-
+    padding: 4px;
     border-radius: 4px;
 
-    background-color: #8bc34a;
-    color: white;
+    color: rgb(253, 253, 253);
 
     font-family: Arial, sans-serif;
     font-size: 12px;
     font-weight: bold;
+}
+
+.tipo {
+    background-color: rgb(119, 168, 63);
+}
+
+.atributo {
+    background-color: rgb(109, 153, 7);
 }
 
 /*Rodapé*/
@@ -360,10 +364,10 @@ footer{
     height: 100px;
     padding: 10px;
     padding-top: 30px;
-    background-color: rgba(79, 220, 224, 0.726);
+    background-color: rgba(38, 144, 148, 0.726);
     background-position: top;
     background-size: cover;
-    box-shadow: inset 10px 10px 10px 1px rgb(226, 213, 215);
+    box-shadow: inset 10px 10px 10px rgba(189, 230, 240, 0.801);
     text-align: center;
 }
 
