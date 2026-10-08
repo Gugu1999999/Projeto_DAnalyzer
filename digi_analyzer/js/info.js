@@ -1,81 +1,90 @@
 const bibliotecaDigimons = {
-    1: {
-        nome: Agumon
-        tipo:Reptil
-        atrinuto:vaccine
-        campo = [
-            Deep Savers,
-            Dragon's Roar,
-            Metal Empire,
-            Nature Spirits,
-            Nightmare Soldiers,
-            Virus Busters,
-        ]
-        capacidade: 20 G[1]/ 15 G[2]
-        evolucoes = ["Cu", "Toba"]
-        imagem = "../../assets/images/degemonzes1.jpg"
+    agumon: {
+        nome: "Agumon",
+        nivel: "Rookie",
+        tipo: "Reptile",
+        atributo: "Vaccine",
+        campo: "Dragon's Roar",
+        capacidade: "Pepper Breath",
+        imagem: "../../assets/images/degemonzes1.jpg",
+        evolucoes: ["Greymon", "MetalGreymon", "WarGreymon"]
     },
 
-    2: {
-        nome: Gabumon
-        tipo:Reptil
-        atributo: data, vaccine
-        campo: [
-            	Metal Empire
-                Nature Spirits
-                Virus Busters
-                Wind Guardians
-        ]
-        capacidade: 15 G[3]/ 20 G[4]
-        evolucoes = ["Cu", "Toba"]
-        imagem = "../../assets/images/degemonzes1.jpg"
+    gabumon: {
+        nome: "Gabumon",
+        nivel: "Rookie",
+        tipo: "Reptile",
+        atributo: "Data",
+        campo: "Nature Spirits",
+        capacidade: "Blue Blaster",
+        imagem: "../../assets/images/degemonzes2.jpg",
+        evolucoes: ["Garurumon", "WereGarurumon", "MetalGarurumon"]
     },
 
-    3: {
-        nome: "Patamon"
-        tipo: "mamifero"
-        atributo: "Data, Free, Vaccine"
-        campo: [
-                   " Nature Spirits"
-                    Virus Busters,"
-                   "Wind Guardians"
-                    Jungle Troopers"
-        ]
-        capacidade:15 G[3] / 20 G [4]
-        evolucoes = ["Cu", "Toba"]
-        imagem = "../../assets/images/degemonzes1.jpg"
+    patamon: {
+        nome: "Patamon",
+        nivel: "Rookie",
+        tipo: "Mammal",
+        atributo: "Data",
+        campo: "Wind Guardians",
+        capacidade: "Boom Bubble",
+        imagem: "../../assets/images/degemonzes3.jpg",
+        evolucoes: ["Angemon", "MagnaAngemon", "Seraphimon"]
+    },
+
+    biyomon: {
+        nome: "Biyomon",
+        nivel: "Rookie",
+        tipo: "Bird",
+        atributo: "Vaccine",
+        campo: "Wind Guardians",
+        capacidade: "Spiral Twister",
+        imagem: "../../assets/images/degemonzes4.jpg",
+        evolucoes: ["Birdramon", "Garudamon", "Hououmon"]
     }
+};
 
-    4: {
-        nome:
-        tipo:
-        atrinuto:
-        campo:
-        capacidade:
-        evolucoes = ["Cu", "Toba"]
-        imagem = "../../assets/images/degemonzes1.jpg"
-    }
-}
+const parametros = new URLSearchParams(window.location.search);
 
-const campo_nome = document.getElementById("Nome")
-const campo_tipo = document.getElementById("Tome")
-const campo_atributo = document.getElementById("Atributo")
-const campo_campo = document.getElementById("Campo")
-const campo_capacidade = document.getElementById("Capacidade")
+const id = parametros.get("digimon");
 
-function digimonex(id) {
-    const digimon = bibliotecaDigimons[id]
-    if (digimon) {
-        campo_nome.textContent = digimon.nome;
-        camnpo_tipo.textContent = digimon.tipo;
-        campo_atributo.textContent = digimon.atributo;
-    } else {
-        console.log("Digimon não encontrado.")
-    }
-}
+console.log(id);
 
-digimonex(id);
+const dados = bibliotecaDigimons[id];
 
+const listaEvolucoes = document.getElementById("digimon-evolucoes");
 
+dados.evolucoes.forEach(evolucao => {
+    const item = document.createElement("li");
+    const link = document.createElement("a");
 
+    link.href = "#";
+    link.classList.add("digimon");
+    link.textContent = evolucao;
 
+    item.appendChild(link);
+    listaEvolucoes.appendChild(item);
+});
+
+console.log(dados);
+
+const nome = document.getElementById("digimon-name");
+
+nome.textContent = dados.nome;
+
+const imagem = document.getElementById("digimon-image");
+
+imagem.src = dados.imagem;
+imagem.alt = dados.nome;
+
+const nivel = document.getElementById("Nivel");
+const tipo = document.getElementById("Tipo");
+const atributo = document.getElementById("Atributo");
+const campo = document.getElementById("Campo");
+const capacidade = document.getElementById("Capacidade");
+
+nivel.textContent = `Nível: ${dados.nivel}`;
+tipo.textContent = `Tipo: ${dados.tipo}`;
+atributo.textContent = `Atributo: ${dados.atributo}`;
+campo.textContent = `Campo: ${dados.campo}`;
+capacidade.textContent = `Capacidade: ${dados.capacidade}`;
