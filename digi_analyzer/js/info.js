@@ -1,90 +1,103 @@
-const bibliotecaDigimons = {
-    agumon: {
-        nome: "Agumon",
-        nivel: "Rookie",
-        tipo: "Reptile",
-        atributo: "Vaccine",
-        campo: "Dragon's Roar",
-        capacidade: "Pepper Breath",
-        imagem: "../../assets/images/degemonzes1.jpg",
-        evolucoes: ["Greymon", "MetalGreymon", "WarGreymon"]
-    },
-
-    gabumon: {
-        nome: "Gabumon",
-        nivel: "Rookie",
-        tipo: "Reptile",
-        atributo: "Data",
-        campo: "Nature Spirits",
-        capacidade: "Blue Blaster",
-        imagem: "../../assets/images/degemonzes2.jpg",
-        evolucoes: ["Garurumon", "WereGarurumon", "MetalGarurumon"]
-    },
-
-    patamon: {
-        nome: "Patamon",
-        nivel: "Rookie",
-        tipo: "Mammal",
-        atributo: "Data",
-        campo: "Wind Guardians",
-        capacidade: "Boom Bubble",
-        imagem: "../../assets/images/degemonzes3.jpg",
-        evolucoes: ["Angemon", "MagnaAngemon", "Seraphimon"]
-    },
-
-    biyomon: {
-        nome: "Biyomon",
-        nivel: "Rookie",
-        tipo: "Bird",
-        atributo: "Vaccine",
-        campo: "Wind Guardians",
-        capacidade: "Spiral Twister",
-        imagem: "../../assets/images/degemonzes4.jpg",
-        evolucoes: ["Birdramon", "Garudamon", "Hououmon"]
-    }
-};
 
 const parametros = new URLSearchParams(window.location.search);
 
 const id = parametros.get("digimon");
 
-console.log(id);
+// Retorna o primeiro valor encontrado em uma lista
+function obterValores(lista, propriedade) {
 
-const dados = bibliotecaDigimons[id];
+    if (!Array.isArray(lista)) {
+        return "Não informado";
+    }
 
-const listaEvolucoes = document.getElementById("digimon-evolucoes");
+    const valores = lista
+        .map(item => item[propriedade])
+        .filter(Boolean);
 
-dados.evolucoes.forEach(evolucao => {
-    const item = document.createElement("li");
-    const link = document.createElement("a");
+    return valores.length > 0
+        ? valores.join(", ")
+        : "Não informado";
+}
 
-    link.href = "#";
-    link.classList.add("digimon");
-    link.textContent = evolucao;
+// Exibe as evoluções
+function exibirEvolucoes(lista) {
 
-    item.appendChild(link);
-    listaEvolucoes.appendChild(item);
-});
+    const elemento = document.getElementById("digimon-evolucoes");
 
-console.log(dados);
+    elemento.innerHTML = "";
 
-const nome = document.getElementById("digimon-name");
+    if (!Array.isArray(lista) || lista.length === 0) {
+        elemento.textContent = "Nenhuma evolução cadastrada.";
+        return;
+    }
 
-nome.textContent = dados.nome;
+    lista.forEach(evolucao => {
 
-const imagem = document.getElementById("digimon-image");
+        const item = document.createElement("li");
+        const link = document.createElement("a");
 
-imagem.src = dados.imagem;
-imagem.alt = dados.nome;
+        link.textContent = evolucao.digimon || evolucao.name;
 
-const nivel = document.getElementById("Nivel");
-const tipo = document.getElementById("Tipo");
-const atributo = document.getElementById("Atributo");
-const campo = document.getElementById("Campo");
-const capacidade = document.getElementById("Capacidade");
+        if (evolucao.id) {
+            link.href = `info.html?digimon=${evolucao.id}`;
+        } else {
+            link.href = "#";
+        }
 
-nivel.textContent = `Nível: ${dados.nivel}`;
-tipo.textContent = `Tipo: ${dados.tipo}`;
-atributo.textContent = `Atributo: ${dados.atributo}`;
-campo.textContent = `Campo: ${dados.campo}`;
-capacidade.textContent = `Capacidade: ${dados.capacidade}`;
+        item.appendChild(link);
+        elemento.appendChild(item);
+    });
+}
+
+// Carrega as informações do Digimon
+async function carregarInformacoes() {
+
+    if (!id) {
+        document.getElementById("digimon-name").textContent =
+            "Nenhum Digimon selecionado.";
+        return;
+    }
+
+    try {
+
+        const dados = await buscarDigimonPorId(id);
+
+        // Nome
+        document.getElementById("digimon-name").textContent =
+            dados.name;
+
+        // Imagem
+        const imagem = document.getElementById("digimon-image");
+
+        imagem.src = dados.images?.[0]?.href || dados.image || "";
+        imagem.alt = dados.name;
+
+        // Características
+        document.getElementById("Nivel").textContent =
+            `Nível: ${obterValores(dados.levels, "level")}`;
+
+        document.getElementById("Tipo").textContent =
+            `Tipo: ${obterValores(dados.types, "type")}`;
+
+        document.getElementById("Atributo").textContent =
+            `Atributo: ${obterValores(dados.attributes, "attribute")}`;
+
+        document.getElementById("Campo").textContent =
+            `Campo: ${obterValores(dados.fields, "field")}`;
+
+        document.getElementById("Capacidade").textContent =
+            `Habilidades: ${obterValores(dados.skills, "skill")}`;
+
+        // Evoluções
+        exibirEvolucoes(dados.nextEvolutions);
+
+    } catch (erro) {
+
+        console.error("Erro ao carregar informações:", erro);
+
+        document.getElementById("digimon-name").textContent =
+            "Não foi possível encontrar esse Digimon.";
+    }
+}
+
+carregarInformacoes();

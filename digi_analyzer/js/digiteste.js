@@ -1,4 +1,4 @@
-const digimonUrl = "https://digi-api.com/api/v1/digimon/1485"; // 1485 retorna pyradimon, com uma internet ruim, aparece "carregando" por um breve momento, enquanto para o erro, qualquer id muito alto que não seja de um digimon, aparecerá "carregando" inicialmente, e logo depois uma mensagem de erro no h1.
+const digimonUrl = "https://digi-api.com/api/v1/digimon/"; // 1485 retorna pyradimon, com uma internet ruim, aparece "carregando" por um breve momento, enquanto para o erro, qualquer id muito alto que não seja de um digimon, aparecerá "carregando" inicialmente, e logo depois uma mensagem de erro no h1.
 
 const fetchDigimon = async () => {
     const digimonName = document.getElementById("digimon-name");
