@@ -101,3 +101,31 @@ async function carregarInformacoes() {
 }
 
 carregarInformacoes();
+
+// Sistema de avanço e retrocesso de digimons
+async function atualizarId(id) {
+    const dados = await buscarDigimons();
+    const quantidadeDigimons = dados.pageable.totalElements;
+    const idAtual = Number(id);
+
+
+    const botaoAnterior = document.getElementById("botao-anterior");
+    const botaoProximo = document.getElementById("botao-proximo");
+
+    botaoProximo.disabled = idAtual >= quantidadeDigimons;
+    botaoAnterior.disabled = idAtual < 1;
+
+    botaoProximo.addEventListener("click", () => {
+        if (idAtual < quantidadeDigimons) {
+            window.location.href = `info.html?digimon=${idAtual + 1}`;
+        }
+    });
+
+    botaoAnterior.addEventListener("click", () => {
+        if (idAtual >= 1) {
+            window.location.href = `info.html?digimon=${idAtual - 1}`;
+        }
+    });
+}
+
+atualizarId(id);

@@ -38,10 +38,15 @@ header h1 {
 }
 
 /* CORPO PRINCIPAL */
-
-main {
+body {
     display: flex;
-    min-height: 668px;
+    flex-direction: column;
+    min-height: 100vh;
+
+    background-color: rgb(255, 255, 255);
+}
+main {
+    flex: 1;
 
     background-image: url(../../assets/images/GridBG.png);
     background-repeat: no-repeat;
@@ -51,7 +56,6 @@ main {
 main section {
     display: flex;
     width: 100%;
-    margin: 20px;
 }
 
 .Digimon img {
@@ -146,6 +150,7 @@ footer {
 
     height: auto;
     padding: 30px 10px;
+    margin-top: auto;
 
     background-color: rgb(255, 255, 255);
 
@@ -171,7 +176,7 @@ footer p {
 }
 
 /* RODAPÉ */
-.digimon-prev {
+#botao-anterior {
     background-color: rgb(0, 0, 0);
     border-radius: 10px;
 
@@ -187,7 +192,7 @@ footer p {
     box-shadow: 5px 5px 5px rgba(119, 93, 93, 0.219);
 }
 
-.digimon-next {
+#botao-proximo {
     background-color: rgb(0, 0, 0);
     border-radius: 10px;
 

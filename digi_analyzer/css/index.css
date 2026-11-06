@@ -201,9 +201,15 @@ li > a{
 }
 
 /* Corpo Principal */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: rgb(255, 255, 255);
+}
 
 main{
-    height: 80vh;
+    flex: 1;
     background-image: url(../../assets/images/GridBG.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -364,6 +370,7 @@ footer{
     height: 100px;
     padding: 10px;
     padding-top: 30px;
+    margin-top: auto;
 
     background-color: rgba(255, 255, 255, 0.726);
     background-position: top;
